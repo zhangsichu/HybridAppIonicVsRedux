@@ -1,50 +1,52 @@
-angular.module('starter.services', [])
-
-.factory('Chats', function() {
-  // Might use a resource here that returns a JSON array
-
-  // Some fake testing data
-  var chats = [{
-    id: 0,
-    name: 'Ben Sparrow',
-    lastText: 'You on your way?',
-    face: 'img/ben.png'
-  }, {
-    id: 1,
-    name: 'Max Lynx',
-    lastText: 'Hey, it\'s me',
-    face: 'img/max.png'
-  }, {
-    id: 2,
-    name: 'Adam Bradleyson',
-    lastText: 'I should buy a boat',
-    face: 'img/adam.jpg'
-  }, {
-    id: 3,
-    name: 'Perry Governor',
-    lastText: 'Look at my mukluks!',
-    face: 'img/perry.png'
-  }, {
-    id: 4,
-    name: 'Mike Harrington',
-    lastText: 'This is wicked good ice cream.',
-    face: 'img/mike.png'
-  }];
-
-  return {
-    all: function() {
-      return chats;
-    },
-    remove: function(chat) {
-      chats.splice(chats.indexOf(chat), 1);
-    },
-    get: function(chatId) {
-      for (var i = 0; i < chats.length; i++) {
-        if (chats[i].id === parseInt(chatId)) {
-          return chats[i];
+angular.module('ebApp.services', [])
+    .factory('CommonService', function () {
+        var service = {
+            baseUrl: 'http://localhost:3000/',
+            buildUrl: function (subUrl) {
+                return this.baseUrl + subUrl;
+            }
+        };
+        return service;
+    })
+    .factory('ShareState', function () {
+        return {
+            orders: null,
+            total: 0,
+            location: null,
+            pickTime: null
         }
-      }
-      return null;
-    }
-  };
-});
+    })
+    .factory('LocationService', function ($q, $http, $timeout, CommonService) {
+        return {
+            all: function () {
+                return $http.get(CommonService.buildUrl('location'));
+            }
+        }
+    })
+    .factory('MenuService', function ($q, $http, $timeout, CommonService) {
+        return {
+            all: function () {
+                return $http.get(CommonService.buildUrl('menus'));
+            },
+            detail: function (menuId) {
+                return $http.get(CommonService.buildUrl('menu/' + menuId));
+            }
+        };
+    })
+    .factory('PickTimeService', function ($q, $http, $timeout, CommonService) {
+        return {
+            all: function () {
+                return $http.get(CommonService.buildUrl('pickTime'));
+            }
+        };
+    })
+    .factory('OrderService', function ($q, $http, $timeout, CommonService) {
+        return {
+            all: function () {
+                return $http.get(CommonService.buildUrl('orders'));
+            },
+            detail: function (orderId) {
+                return $http.get(CommonService.buildUrl('detail/' + orderId));
+            }
+        };
+    });
