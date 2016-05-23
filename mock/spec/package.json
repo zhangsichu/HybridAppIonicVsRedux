@@ -1,0 +1,22 @@
+{
+  "name": "raml-mock-server",
+  "version": "0.0.1",
+  "description": "API description for Ionic App",
+  "main": "api.raml",
+  "scripts": {
+    "postinstall": "npm i -g raml2html; brew install watchman",
+    "prestart": "watchman watch $PWD; watchman -- trigger $PWD ionic_app '*.raml' -- raml2html -i api.raml -o api.html -t $PWD/doc_template/template.nunjucks",
+    "start": "live-server --port=8082 --host=localhost --watch=api.raml --entry-file=api.html --mount=/deps:./node_modules -q",
+    "mock": "osprey-mock-service -f api.raml -p 8081",
+    "stop-watch": "watchman shutdown-server"
+  },
+  "author": "zhangsichu@gmail.com",
+  "license": "ISC",
+  "devDependencies": {
+    "bootstrap": "^3.3.6",
+    "highlight.js": "^9.4.0",
+    "jquery": "^2.2.4",
+    "live-server": "^1.0.0",
+    "osprey-mock-service": "^0.1.0"
+  }
+}

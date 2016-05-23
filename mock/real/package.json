@@ -1,0 +1,15 @@
+{
+  "name": "zhangsichu",
+  "version": "1.0.0",
+  "description": "The mock DB for Ionic demo project",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 0"
+  },
+  "author": "zhangsichu",
+  "license": "ISC",
+  "devDependencies": {
+    "express": "^4.13.4"
+  }
+}

@@ -29,7 +29,7 @@ angular.module('ebApp.services', ['ebApp.config'])
                 return $http.get(CommonService.buildUrl('menus'));
             },
             detail: function (menuId) {
-                return $http.get(CommonService.buildUrl('menu/' + menuId));
+                return $http.get(CommonService.buildUrl('menu/id/' + menuId));
             }
         };
     })
@@ -46,7 +46,7 @@ angular.module('ebApp.services', ['ebApp.config'])
                 return $http.get(CommonService.buildUrl('orders'));
             },
             detail: function (orderId) {
-                return $http.get(CommonService.buildUrl('detail/' + orderId));
+                return $http.get(CommonService.buildUrl('order/id/' + orderId));
             }
         };
     });

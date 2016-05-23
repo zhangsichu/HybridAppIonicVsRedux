@@ -1,0 +1,13 @@
+#%RAML 0.8 ResourceType
+description: <<resourcePathName|!singularize>>明细
+get:
+  description: |
+    取得 <<resourcePathName|!singularize>> 的明细
+    当 <<resourcePathName|!singularize>>Id =
+    {<<resourcePathName|!singularize>>Id}
+  responses:
+    200:
+      body:
+        application/json:
+          example: |
+            <<example_item>>

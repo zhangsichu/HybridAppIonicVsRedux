@@ -143,7 +143,7 @@ angular.module('ebApp.controllers', ['ebApp.services', 'baiduMap'])
                     topScope.mapOptions.current = marker;
                     $timeout(function () {
                         topScope.setActiveContent('list');
-                        growl.addErrorMessage("取餐点已选定，请确认，点击下一步～", {ttl: 1800});
+                        growl.addErrorMessage("取餐点已选定，请确认，点击下一步~", {ttl: 1800});
                     });
                     break;
                 }

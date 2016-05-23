@@ -1,0 +1,79 @@
+#%RAML 0.8
+---
+title: Ionic App Api schema
+
+resourceTypes:
+  - collection: !include resource_types/collection.raml
+  - collection_item: !include resource_types/collection_item.raml
+
+traits:
+  - pageable: !include traits/pageable.raml
+  - menu_searchable: !include traits/menu_searchable.raml
+  - order_code_searchable: !include traits/order_code_searchable.raml
+  - order_id_searchable: !include traits/order_id_searchable.raml
+
+/error:
+  description: 测试服务端的异常返回！
+  /401:
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+              example: |
+                {"success":false, "data":"出错了"}
+
+  /403:
+    get:
+      responses:
+        403:
+          body:
+            application/json:
+              example: |
+                {"success":false, "data": "未登录！"}
+
+/login:
+  description: 用户登录
+  post:
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {"success": true, "data":{"authenticationToken": "abc345345ssrdefgh"}}
+
+/isAuthorized:
+  description: 当前用户是否有应用访问权限
+  get:
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {"success": true, "data": true}
+
+/logout:
+  description: 退出系统
+  post:
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {"success": true, "data": true}
+
+/orders:
+  type:
+    collection:
+      example_collection: !include example/orders.json
+  get:
+    description: 获取菜单列表
+
+/order/id/{id}:
+  description: 获取订单详情
+  get:
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include example/order.json

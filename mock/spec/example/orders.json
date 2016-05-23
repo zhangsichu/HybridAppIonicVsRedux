@@ -1,0 +1,26 @@
+{
+  "success": true,
+  "data" :[
+    {
+      "id": "EAD25B08-A0C1-47BF-816C-AF13059BC1EA",
+      "code": "12345678",
+      "qrSrc": "img/data/qrCode.png",
+      "total": 50,
+      "pickTime": {
+          "id": "386C863D-392A-454D-8108-1A411DDAC63F",
+          "name": "8:00"
+      },
+      "date": "2015-10-21T13:28:06.419Z"
+  },
+  {
+      "id": "9F025B77-F61D-432C-8FB4-D82EACCCFF17",
+      "code": "23456789",
+      "qrSrc": "img/data/qrCode.png",
+      "total": 60,
+      "pickTime": {
+          "id": "8D23A4ED-7A02-4DAE-9150-1B1FC227CFA2",
+          "name": "8:30"
+      },
+      "date": "2016-03-21T13:28:06.419Z"
+  }]
+}

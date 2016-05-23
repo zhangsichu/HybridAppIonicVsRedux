@@ -1,0 +1,177 @@
+<!DOCTYPE HTML><html><head><title>Ionic App Api schema documentation</title><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="generator" content="https://github.com/kevinrenskers/raml2html 2.4.0"><link rel="stylesheet" href="deps/bootstrap/dist/css/bootstrap.min.css"><link rel="stylesheet" href="deps/highlight.js/styles/default.css"><script type="text/javascript" src="deps/jquery/dist/jquery.min.js"></script><script type="text/javascript" src="deps/bootstrap/dist/js/bootstrap.min.js"></script><script type="text/javascript" src="deps/highlight.js/lib/highlight.js"></script><script type="text/javascript">
+      $(document).ready(function() {
+        $('.page-header pre code, .top-resource-description pre code').each(function(i, block) {
+          hljs.highlightBlock(block);
+        });
+
+        $('[data-toggle]').click(function() {
+          var selector = $(this).data('target') + ' pre code';
+          $(selector).each(function(i, block) {
+            hljs.highlightBlock(block);
+          });
+        });
+
+        // open modal on hashes like #_action_get
+        $(window).bind('hashchange', function(e) {
+          var anchor_id = document.location.hash.substr(1); //strip #
+          var element = $('#' + anchor_id);
+
+          // do we have such element + is it a modal?  --> show it
+          if (element.length && element.hasClass('modal')) {
+            element.modal('show');
+          }
+        });
+
+        // execute hashchange on first page load
+        $(window).trigger('hashchange');
+
+        // remove url fragment on modal hide
+        $('.modal').on('hidden.bs.modal', function() {
+          try {
+            if (history && history.replaceState) {
+                history.replaceState({}, '', '#');
+            }
+          } catch(e) {}
+        });
+      });
+    </script><style>
+      .hljs {
+        background: transparent;
+      }
+      .parent {
+        color: #999;
+      }
+      .list-group-item > .badge {
+        float: none;
+        margin-right: 6px;
+      }
+      .panel-title > .methods {
+        float: right;
+      }
+      .badge {
+        border-radius: 0;
+        text-transform: uppercase;
+        width: 70px;
+        font-weight: normal;
+        color: #f3f3f6;
+        line-height: normal;
+      }
+      .badge_get {
+        background-color: #63a8e2;
+      }
+      .badge_post {
+        background-color: #6cbd7d;
+      }
+      .badge_put {
+        background-color: #22bac4;
+      }
+      .badge_delete {
+        background-color: #d26460;
+      }
+      .badge_patch {
+        background-color: #ccc444;
+      }
+      .list-group, .panel-group {
+        margin-bottom: 0;
+      }
+      .panel-group .panel+.panel-white {
+        margin-top: 0;
+      }
+      .panel-group .panel-white {
+        border-bottom: 1px solid #F5F5F5;
+        border-radius: 0;
+      }
+      .panel-white:last-child {
+        border-bottom-color: white;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+      }
+      .panel-white .panel-heading {
+        background: white;
+      }
+      .tab-pane ul {
+        padding-left: 2em;
+      }
+      .tab-pane h2 {
+        font-size: 1.2em;
+        padding-bottom: 4px;
+        border-bottom: 1px solid #ddd;
+      }
+      .tab-pane h3 {
+        font-size: 1.1em;
+      }
+      .tab-content {
+        border-left: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        padding: 10px;
+      }
+      #sidebar {
+        margin-top: 30px;
+        padding-right: 5px;
+        overflow: auto;
+        height: 90%;
+      }
+      .top-resource-description {
+        border-bottom: 1px solid #ddd;
+        background: #fcfcfc;
+        padding: 15px 15px 0 15px;
+        margin: -15px -15px 10px -15px;
+      }
+      .resource-description {
+        border-bottom: 1px solid #fcfcfc;
+        background: #fcfcfc;
+        padding: 15px 15px 0 15px;
+        margin: -15px -15px 10px -15px;
+      }
+      .resource-description p:last-child {
+        margin: 0;
+      }
+      .list-group .badge {
+        float: left;
+      }
+      .method_description {
+        margin-left: 85px;
+      }
+      .method_description p:last-child {
+        margin: 0;
+      }
+      .list-group-item {
+        cursor: pointer;
+      }
+      .list-group-item:hover {
+        background-color: #f5f5f5;
+      }
+    </style></head><body data-spy="scroll" data-target="#sidebar"><div class="container"><div class="row"><div class="col-md-9" role="main"><div class="page-header"><h1>Ionic App Api schema documentation</h1><p></p></div><div class="panel panel-default"><div class="panel-heading"><h3 id="error" class="panel-title">/error</h3></div><div class="panel-body"><div class="top-resource-description"><p>测试服务端的异常返回！</p></div><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_error_401"><span class="parent">/error</span>/401</a> <span class="methods"><a href="#error_401_get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_error_401" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#error_401_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="error_401_get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/error</span>/401</h4></div><div class="modal-body"><ul class="nav nav-tabs"><li><a href="#error_401_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane" id="error_401_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{"success":false, "data":"出错了"}
+</code></pre></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_error_403"><span class="parent">/error</span>/403</a> <span class="methods"><a href="#error_403_get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_error_403" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#error_403_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="error_403_get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/error</span>/403</h4></div><div class="modal-body"><ul class="nav nav-tabs"><li><a href="#error_403_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane" id="error_403_get_response"><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{"success":false, "data": "未登录！"}
+</code></pre></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="login" class="panel-title">/login</h3></div><div class="panel-body"><div class="top-resource-description"><p>用户登录</p></div><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_login"><span class="parent"></span>/login</a> <span class="methods"><a href="#login_post"><span class="badge badge_post">post</span></a></span></h4></div><div id="panel_login" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#login_post'" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="login_post"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent"></span>/login</h4></div><div class="modal-body"><ul class="nav nav-tabs"><li><a href="#login_post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane" id="login_post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{"success": true, "data":{"authenticationToken": "abc345345ssrdefgh"}}
+</code></pre></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="isAuthorized" class="panel-title">/isAuthorized</h3></div><div class="panel-body"><div class="top-resource-description"><p>当前用户是否有应用访问权限</p></div><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_isAuthorized"><span class="parent"></span>/isAuthorized</a> <span class="methods"><a href="#isAuthorized_get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_isAuthorized" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#isAuthorized_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="isAuthorized_get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent"></span>/isAuthorized</h4></div><div class="modal-body"><ul class="nav nav-tabs"><li><a href="#isAuthorized_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane" id="isAuthorized_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{"success": true, "data": true}
+</code></pre></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="logout" class="panel-title">/logout</h3></div><div class="panel-body"><div class="top-resource-description"><p>退出系统</p></div><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_logout"><span class="parent"></span>/logout</a> <span class="methods"><a href="#logout_post"><span class="badge badge_post">post</span></a></span></h4></div><div id="panel_logout" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#logout_post'" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="logout_post"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent"></span>/logout</h4></div><div class="modal-body"><ul class="nav nav-tabs"><li><a href="#logout_post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane" id="logout_post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{"success": true, "data": true}
+</code></pre></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="orders" class="panel-title">/orders</h3></div><div class="panel-body"><div class="top-resource-description"><p>orders集合</p></div><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_orders"><span class="parent"></span>/orders</a> <span class="methods"><a href="#orders_get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_orders" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#orders_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>获取菜单列表</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="orders_get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent"></span>/orders</h4></div><div class="modal-body"><div class="alert alert-info"><p>获取菜单列表</p></div><ul class="nav nav-tabs"><li><a href="#orders_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane" id="orders_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+  "success": true,
+  "data" :[
+    {
+      "id": "EAD25B08-A0C1-47BF-816C-AF13059BC1EA",
+      "code": "12345678",
+      "qrSrc": "img/data/qrCode.png",
+      "total": 50,
+      "pickTime": {
+          "id": "386C863D-392A-454D-8108-1A411DDAC63F",
+          "name": "8:00"
+      },
+      "date": "2015-10-21T13:28:06.419Z"
+  },
+  {
+      "id": "9F025B77-F61D-432C-8FB4-D82EACCCFF17",
+      "code": "23456789",
+      "qrSrc": "img/data/qrCode.png",
+      "total": 60,
+      "pickTime": {
+          "id": "8D23A4ED-7A02-4DAE-9150-1B1FC227CFA2",
+          "name": "8:30"
+      },
+      "date": "2016-03-21T13:28:06.419Z"
+  }]
+}
+
+</code></pre></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="order_id__id_" class="panel-title">/order/id/{id}</h3></div><div class="panel-body"><div class="top-resource-description"><p>获取订单详情</p></div><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_order_id__id_"><span class="parent"></span>/order/id/{id}</a> <span class="methods"><a href="#order_id__id__get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_order_id__id_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#order_id__id__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="order_id__id__get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent"></span>/order/id/{id}</h4></div><div class="modal-body"><ul class="nav nav-tabs"><li class="active"><a href="#order_id__id__get_request" data-toggle="tab">Request</a></li><li><a href="#order_id__id__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="order_id__id__get_request"><h3>URI Parameters</h3><ul><li><strong>id</strong>: <em>required (string)</em></li></ul></div><div class="tab-pane" id="order_id__id__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p></div></div></div></div></div></div></div></div></div></div></div><div class="col-md-3"><div id="sidebar" class="hidden-print affix" role="complementary"><ul class="nav nav-pills nav-stacked"><li><a href="#error">/error</a></li><li><a href="#login">/login</a></li><li><a href="#isAuthorized">/isAuthorized</a></li><li><a href="#logout">/logout</a></li><li><a href="#orders">/orders</a></li><li><a href="#order_id__id_">/order/id/{id}</a></li></ul></div></div></div></div></body></html>
