@@ -1,7 +1,7 @@
-angular.module('ebApp.services', [])
-    .factory('CommonService', function () {
+angular.module('ebApp.services', ['ebApp.config'])
+    .factory('CommonService', function (Config) {
         var service = {
-            baseUrl: 'http://localhost:3000/',
+            baseUrl: Config.baseUrl,
             buildUrl: function (subUrl) {
                 return this.baseUrl + subUrl;
             }
