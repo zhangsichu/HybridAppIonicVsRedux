@@ -67,7 +67,7 @@ traits:
     collection:
       example_collection: !include example/orders.json
   get:
-    description: 获取菜单列表
+    description: 获取订单列表
 
 /order/id/{id}:
   description: 获取订单详情
@@ -77,3 +77,33 @@ traits:
         body:
           application/json:
             example: !include example/order.json
+
+/menus:
+  type:
+    collection:
+      example_collection: !include example/menus.json
+  get:
+    description: 获取菜单列表
+
+/menu/id/{id}:
+  description: 获取菜单详情
+  get:
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include example/menu.json
+
+/location:
+  type:
+      collection:
+        example_collection: !include example/location.json
+  get:
+    description: 获取地理位置列表
+
+/pickTime:
+  type:
+      collection:
+        example_collection: !include example/pick_time.json
+  get:
+    description: 获取取餐时间列表

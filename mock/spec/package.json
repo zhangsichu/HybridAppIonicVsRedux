@@ -7,7 +7,7 @@
     "postinstall": "npm i -g raml2html; brew install watchman",
     "prestart": "watchman watch $PWD; watchman -- trigger $PWD ionic_app '*.raml' -- raml2html -i api.raml -o api.html -t $PWD/doc_template/template.nunjucks",
     "start": "live-server --port=8082 --host=localhost --watch=api.raml --entry-file=api.html --mount=/deps:./node_modules -q",
-    "mock": "osprey-mock-service -f api.raml -p 8081",
+    "mock": "osprey-mock-service -f api.raml -p 3000",
     "stop-watch": "watchman shutdown-server"
   },
   "author": "zhangsichu@gmail.com",

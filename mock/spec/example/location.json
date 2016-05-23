@@ -1,0 +1,55 @@
+{
+    "success": true,
+    "data": {
+        "center": {
+            "longitude": 121.506191,
+            "latitude": 31.245554
+        },
+        "zoom": 13,
+        "city": "Shanghai",
+        "markers": [
+            {
+                "id": "941F52E9-7CDC-4D68-A014-91C6CC2E2158",
+                "longitude": 121.506191,
+                "latitude": 31.245554,
+                "name": "取餐点 － A"
+            },
+            {
+                "id": "E5C120CC-1B12-452C-B522-BEBE1176ADF2",
+                "longitude": 121.502191,
+                "latitude": 31.225554,
+                "name": "取餐点 － B"
+            },
+            {
+                "id": "CEA621EC-AC8C-4406-A4FA-D4FAACA7F645",
+                "longitude": 121.510191,
+                "latitude": 31.223514,
+                "name": "取餐点 － C"
+            },
+            {
+                "id": "CEB0AB1E-7C0D-4B4C-88FE-106C07123DC8",
+                "longitude": 121.501141,
+                "latitude": 31.256514,
+                "name": "取餐点 － D"
+            },
+            {
+                "id": "91D6C010-56D3-47D6-8D3F-DCAEF1048533",
+                "longitude": 121.521641,
+                "latitude": 31.256214,
+                "name": "取餐点 － E"
+            },
+            {
+                "id": "8CC3E2FA-5B96-4C08-9B37-E2F9F3613B4F",
+                "longitude": 121.511121,
+                "latitude": 31.254524,
+                "name": "取餐点 － F"
+            },
+            {
+                "id": "7EE12EA0-8643-4987-BE74-5C3560437129",
+                "longitude": 121.501341,
+                "latitude": 31.251524,
+                "name": "取餐点 － G"
+            }
+        ]
+    }
+}
