@@ -73,13 +73,13 @@
     <splash height="1024" src="resources/ios/splash/Default-Portrait~ipad.png" width="768" />
     <splash height="960" src="resources/ios/splash/Default@2x~iphone.png" width="640" />
     <splash height="480" src="resources/ios/splash/Default~iphone.png" width="320" />
-    <name>HelloCordova</name>
+    <name>HybridAppIonicVsRedux</name>
     <description>
-        An Ionic Framework and Cordova project.
-    </description>
-    <author email="you@example.com" href="http://example.com.com/">
-      Your Name Here
-    </author>
+      A demo for Hybrid App from Ionic.
+  </description>
+    <author email="zhangsichu@gmail.com" href="https://gmail.com">
+    ZhangSichu
+  </author>
     <content src="index.html" />
     <access origin="*" />
     <preference name="webviewbounce" value="false" />

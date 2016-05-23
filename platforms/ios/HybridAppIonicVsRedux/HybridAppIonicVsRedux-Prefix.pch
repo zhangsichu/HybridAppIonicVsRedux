@@ -17,19 +17,10 @@
  under the License.
  */
 //
-//  main.m
-//  HelloCordova
-//
-//  Created by ___FULLUSERNAME___ on ___DATE___.
-//  Copyright ___ORGANIZATIONNAME___ ___YEAR___. All rights reserved.
+// Prefix header for all source files of the 'HybridAppIonicVsRedux' target in the 'HybridAppIonicVsRedux' project
 //
 
-#import <UIKit/UIKit.h>
-
-int main(int argc, char* argv[])
-{
-    @autoreleasepool {
-        int retVal = UIApplicationMain(argc, argv, nil, @"AppDelegate");
-        return retVal;
-    }
-}
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+    #import <UIKit/UIKit.h>
+#endif
