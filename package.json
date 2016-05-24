@@ -2,6 +2,12 @@
   "name": "ionic-project",
   "version": "1.1.1",
   "description": "An Ionic project",
+  "scripts": {
+    "android-prd": "API_EVN=prd ionic run android",
+    "android-test": "API_EVN=test ionic run android",
+    "ios-prd": "API_EVN=prd ionic run ios",
+    "ios-test": "API_EVN=test ionic run ios"
+  },
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^2.0.4",
@@ -23,6 +29,7 @@
     "ionic-plugin-keyboard"
   ],
   "cordovaPlatforms": [
+    "android",
     "ios"
   ]
 }

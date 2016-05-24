@@ -13,39 +13,39 @@ var path = require('path');
 
 var rootdir = process.argv[2];
 
-function addPlatformBodyTag(indexPath, platform) {
-  // add the platform class to the body tag
+function addTagToBody(indexPath, tags) {
   try {
-    var platformClass = 'platform-' + platform;
-    var cordovaClass = 'platform-cordova platform-webview';
-
     var html = fs.readFileSync(indexPath, 'utf8');
-
     var bodyTag = findBodyTag(html);
-    if(!bodyTag) return; // no opening body tag, something's wrong
+    if(!bodyTag) return; // no opening body tag, something's wrong.
+    if(tags == null || tags.length <=0) return; //tags need to add.
 
-    if(bodyTag.indexOf(platformClass) > -1) return; // already added
+    for(var i=0; i<tags.length; i++) {
+      var tag = tags[i];
+      if(bodyTag.indexOf(tag) > -1) continue; // already added
 
-    var newBodyTag = bodyTag;
+      var newBodyTag = bodyTag;
+      var classAttr = findClassAttr(bodyTag);
 
-    var classAttr = findClassAttr(bodyTag);
-    if(classAttr) {
-      // body tag has existing class attribute, add the classname
-      var endingQuote = classAttr.substring(classAttr.length-1);
-      var newClassAttr = classAttr.substring(0, classAttr.length-1);
-      newClassAttr += ' ' + platformClass + ' ' + cordovaClass + endingQuote;
-      newBodyTag = bodyTag.replace(classAttr, newClassAttr);
+      if(classAttr) {
+        // body tag has existing class attribute, add the classname
+        var endingQuote = classAttr.substring(classAttr.length-1);
+        var newClassAttr = classAttr.substring(0, classAttr.length-1);
+        newClassAttr += ' ' + tag + endingQuote;
+        newBodyTag = bodyTag.replace(classAttr, newClassAttr);
+      } else {
+        // add class attribute to the body tag
+        newBodyTag = bodyTag.replace('>', ' class="' + tag + '">');
+      }
 
-    } else {
-      // add class attribute to the body tag
-      newBodyTag = bodyTag.replace('>', ' class="' + platformClass + ' ' + cordovaClass + '">');
+      html = html.replace(bodyTag, newBodyTag);
+      bodyTag = newBodyTag;
+
+      process.stdout.write('add to body class: ' + tag + '\n');
     }
-
-    html = html.replace(bodyTag, newBodyTag);
 
     fs.writeFileSync(indexPath, html, 'utf8');
 
-    process.stdout.write('add to body class: ' + platformClass + '\n');
   } catch(e) {
     process.stdout.write(e);
   }
@@ -69,6 +69,7 @@ if (rootdir) {
 
   // go through each of the platform directories that have been prepared
   var platforms = (process.env.CORDOVA_PLATFORMS ? process.env.CORDOVA_PLATFORMS.split(',') : []);
+  var tags = [];
 
   for(var x=0; x<platforms.length; x++) {
     // open up the index.html file at the www root
@@ -83,12 +84,23 @@ if (rootdir) {
       }
 
       if(fs.existsSync(indexPath)) {
-        addPlatformBodyTag(indexPath, platform);
+        tags.push('platform-' + platform);
       }
-
     } catch(e) {
       process.stdout.write(e);
     }
   }
 
+  tags.push('platform-cordova platform-webview');
+
+  var apiEvn = process.env.API_EVN;
+  if(apiEvn != null){
+    tags.push("api-" + apiEvn);
+  }
+
+  try {
+    addTagToBody(indexPath, tags);
+  } catch(e) {
+    process.stdout.write(e);
+  }
 }
